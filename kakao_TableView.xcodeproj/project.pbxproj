@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		B6F51120269C12BD001CACE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5111F269C12BD001CACE5 /* AppDelegate.swift */; };
 		B6F51122269C12BD001CACE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F51121269C12BD001CACE5 /* SceneDelegate.swift */; };
-		B6F51124269C12BD001CACE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F51123269C12BD001CACE5 /* ViewController.swift */; };
 		B6F51127269C12BD001CACE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F51125269C12BD001CACE5 /* Main.storyboard */; };
 		B6F51129269C12BE001CACE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6F51128269C12BE001CACE5 /* Assets.xcassets */; };
 		B6F5112C269C12BE001CACE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F5112A269C12BE001CACE5 /* LaunchScreen.storyboard */; };
 		B6F51137269C12BE001CACE5 /* kakao_TableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F51136269C12BE001CACE5 /* kakao_TableViewTests.swift */; };
 		B6F51142269C12BE001CACE5 /* kakao_TableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F51141269C12BE001CACE5 /* kakao_TableViewUITests.swift */; };
+		B6F51154269C24F2001CACE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F51153269C24F2001CACE5 /* MainViewController.swift */; };
+		B6F51157269C2A8E001CACE5 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F51155269C2A8E001CACE5 /* FriendsTableViewCell.swift */; };
+		B6F51158269C2A8E001CACE5 /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F51156269C2A8E001CACE5 /* FriendsTableViewCell.xib */; };
+		B6F5115A269C2E36001CACE5 /* myDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F51159269C2E36001CACE5 /* myDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,6 @@
 		B6F5111C269C12BD001CACE5 /* kakao_TableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakao_TableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F5111F269C12BD001CACE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6F51121269C12BD001CACE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B6F51123269C12BD001CACE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6F51126269C12BD001CACE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6F51128269C12BE001CACE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6F5112B269C12BE001CACE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		B6F5113D269C12BE001CACE5 /* kakao_TableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kakao_TableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F51141269C12BE001CACE5 /* kakao_TableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kakao_TableViewUITests.swift; sourceTree = "<group>"; };
 		B6F51143269C12BE001CACE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6F51153269C24F2001CACE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B6F51155269C2A8E001CACE5 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsTableViewCell.swift; path = ../storyboard/FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		B6F51156269C2A8E001CACE5 /* FriendsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsTableViewCell.xib; sourceTree = "<group>"; };
+		B6F51159269C2E36001CACE5 /* myDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		B6F5111E269C12BD001CACE5 /* kakao_TableView */ = {
 			isa = PBXGroup;
 			children = (
+				B6F5115B269C2E3B001CACE5 /* DataModel */,
 				B6F51150269C12E0001CACE5 /* viewController */,
 				B6F5114F269C12CC001CACE5 /* storyboard */,
 				B6F5111F269C12BD001CACE5 /* AppDelegate.swift */,
@@ -131,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				B6F51125269C12BD001CACE5 /* Main.storyboard */,
+				B6F51156269C2A8E001CACE5 /* FriendsTableViewCell.xib */,
 				B6F5112A269C12BE001CACE5 /* LaunchScreen.storyboard */,
 			);
 			path = storyboard;
@@ -139,9 +147,18 @@
 		B6F51150269C12E0001CACE5 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
-				B6F51123269C12BD001CACE5 /* ViewController.swift */,
+				B6F51155269C2A8E001CACE5 /* FriendsTableViewCell.swift */,
+				B6F51153269C24F2001CACE5 /* MainViewController.swift */,
 			);
 			path = viewController;
+			sourceTree = "<group>";
+		};
+		B6F5115B269C2E3B001CACE5 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6F51159269C2E36001CACE5 /* myDataModel.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +267,7 @@
 				B6F5112C269C12BE001CACE5 /* LaunchScreen.storyboard in Resources */,
 				B6F51129269C12BE001CACE5 /* Assets.xcassets in Resources */,
 				B6F51127269C12BD001CACE5 /* Main.storyboard in Resources */,
+				B6F51158269C2A8E001CACE5 /* FriendsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,9 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6F51124269C12BD001CACE5 /* ViewController.swift in Sources */,
 				B6F51120269C12BD001CACE5 /* AppDelegate.swift in Sources */,
 				B6F51122269C12BD001CACE5 /* SceneDelegate.swift in Sources */,
+				B6F51154269C24F2001CACE5 /* MainViewController.swift in Sources */,
+				B6F5115A269C2E36001CACE5 /* myDataModel.swift in Sources */,
+				B6F51157269C2A8E001CACE5 /* FriendsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

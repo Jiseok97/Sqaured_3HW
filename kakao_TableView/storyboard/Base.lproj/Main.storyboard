@@ -1,24 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5q4-2U-Jsb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="kakao_TableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwU-g9-Ajc">
+                                <rect key="frame" x="15" y="54" width="48.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b89-qs-kID">
+                                <rect key="frame" x="364" y="54" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ufw-DL-AXV"/>
+                                    <constraint firstAttribute="width" constant="40" id="cFe-dj-0Jb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="gearshape" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="regular"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kKp-R6-zQv">
+                                <rect key="frame" x="0.0" y="97.5" width="414" height="715.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsTableViewCell" rowHeight="67" id="JcX-wO-SPg" customClass="FriendsTableViewCell" customModule="kakao_TableView" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JcX-wO-SPg" id="4gj-eZ-StF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgView" destination="4gj-eZ-StF" id="zTf-nq-qkx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kKp-R6-zQv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3pI-V5-V1T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kKp-R6-zQv" secondAttribute="bottom" id="Nxj-6p-lIN"/>
+                            <constraint firstItem="qwU-g9-Ajc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="T75-aA-sjN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b89-qs-kID" secondAttribute="trailing" constant="10" id="Xc8-lV-7gr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kKp-R6-zQv" secondAttribute="trailing" id="ZL0-gz-THC"/>
+                            <constraint firstItem="kKp-R6-zQv" firstAttribute="top" secondItem="qwU-g9-Ajc" secondAttribute="bottom" constant="10" id="fwe-B3-FAF"/>
+                            <constraint firstItem="b89-qs-kID" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="uk7-xX-WHq"/>
+                            <constraint firstItem="qwU-g9-Ajc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="wAS-ZL-yV8"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" selectedImage="person.fill" id="51s-cr-CWa"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="kakaoTableView" destination="kKp-R6-zQv" id="B8T-9s-cp8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="944.92753623188412" y="77.678571428571431"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6kO-Pz-22K">
+            <objects>
+                <viewController id="6vs-2h-U0H" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cKR-ZH-SBN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eXc-Ej-z7S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="message.fill" catalog="system" id="5N1-V5-hcb">
+                        <imageReference key="image" image="message" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDa-FS-eQr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-807" y="78"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1FI-v1-Q4c">
+            <objects>
+                <viewController id="wxJ-kK-5Wq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d6d-CH-wrX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="IsY-7Q-gFN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="number" catalog="system" selectedImage="number" id="d0Q-FH-PGt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3z-gx-iW8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-807" y="754"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1UA-9T-Opt">
+            <objects>
+                <viewController id="eVo-kV-8ZY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Un-wS-Psh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hqG-0D-Df7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="bag" catalog="system" selectedImage="bag.fill" id="7NB-mZ-HXc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mq8-Zs-raA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1497" y="78"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gnW-yz-tpU">
+            <objects>
+                <viewController id="ipj-Lp-bVS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wx6-0o-wuW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1v4-tI-kLK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="ellipsis" catalog="system" selectedImage="ellipsis" id="gWV-VS-HnS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jG-j9-hYM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1497" y="753"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="apG-5d-nWR">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5q4-2U-Jsb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OdY-UU-L7o">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.12549019607843137" green="0.13725490196078433" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="s2n-9P-ckQ"/>
+                        <segue destination="6vs-2h-U0H" kind="relationship" relationship="viewControllers" id="hAY-8d-wOR"/>
+                        <segue destination="wxJ-kK-5Wq" kind="relationship" relationship="viewControllers" id="V6i-B6-UJR"/>
+                        <segue destination="eVo-kV-8ZY" kind="relationship" relationship="viewControllers" id="rqq-uv-hQa"/>
+                        <segue destination="ipj-Lp-bVS" kind="relationship" relationship="viewControllers" id="5ke-hx-kw7"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qtl-rU-XBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="77.678571428571431"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="bag.fill" catalog="system" width="128" height="128"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="number" catalog="system" width="128" height="124"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
