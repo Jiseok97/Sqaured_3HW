@@ -20,18 +20,21 @@ class MainViewController: UIViewController {
         kakaoTableView.delegate = self
         kakaoTableView.dataSource = self
         kakaoTableView.separatorStyle = .none
+        
+        let nibName = UINib(nibName: "FriendsTableViewCell", bundle: nil)
+        kakaoTableView.register(nibName, forCellReuseIdentifier: "FriendsCell")
     }
     
     func setFriendsList()
     {
         myData.append(contentsOf: [
-            myDataModel(imageName: "personImag", name: "아요쓰", msg: "배고프다"),
-            myDataModel(imageName: "personImag", name: "지노", msg: "나도 배고파"),
-            myDataModel(imageName: "personImag", name: "모니", msg: "나도 배고파22"),
-            myDataModel(imageName: "personImag", name: "아일린", msg: "나도 배고프다33"),
-            myDataModel(imageName: "personImag", name: "우주", msg: "나도 배고프다44"),
-            myDataModel(imageName: "personImag", name: "앤디", msg: "나도 배고프다55"),
-            myDataModel(imageName: "personImag", name: "조디", msg: "나도 배고프다66")
+            myDataModel(imageName: "personImg", name: "아요쓰", msg: "배고프다"),
+            myDataModel(imageName: "personImg", name: "지노", msg: "나도 배고파"),
+            myDataModel(imageName: "personImg", name: "모니", msg: "나도 배고파22"),
+            myDataModel(imageName: "personImg", name: "아일린", msg: "나도 배고프다33"),
+            myDataModel(imageName: "personImg", name: "우주", msg: "나도 배고프다44"),
+            myDataModel(imageName: "personImg", name: "앤디", msg: "나도 배고프다55"),
+            myDataModel(imageName: "personImg", name: "조디", msg: "나도 배고프다66")
         ])
     }
 }
@@ -39,13 +42,13 @@ class MainViewController: UIViewController {
 extension MainViewController : UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath.row == 1)
+        if (indexPath.row == 0)
         {
-            return 110
+            return 106
         }
         else
         {
-            return 80
+            return 90
         }
     }
 }
@@ -57,7 +60,7 @@ extension MainViewController : UITableViewDataSource
     
     // 어떤 내용을 담을지
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath)
                 as? FriendsTableViewCell else { return UITableViewCell() }
         
         cell.setDate(imageName: myData[indexPath.row].imageName,
