@@ -11,6 +11,7 @@ class FriendsTableViewCell: UITableViewCell {
     
     static let identifier : String = "FriendsTableViewCell"
 
+    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var msgLbl: UILabel!
@@ -33,6 +34,7 @@ class FriendsTableViewCell: UITableViewCell {
         if let image = UIImage(named: imageName)
         {
             imgView.image = image
+            imgView.layer.cornerRadius = 20
         }
         nameLbl.text = name
         msgLbl.text = msg
