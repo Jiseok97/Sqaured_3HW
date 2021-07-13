@@ -28,6 +28,14 @@ class MainViewController: UIViewController {
 //        kakaoTableView.register(nibName, forCellReuseIdentifier: "FriendsCell")
     }
     
+    // MARK: reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        kakaoTableView.reloadData()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        kakaoTableView.reloadData()
+    }
+    
     
     // MARK: myData
     func setFriendsList()
@@ -79,20 +87,59 @@ class MainViewController: UIViewController {
     
 }
 
+
+// MARK: Delegate
 extension MainViewController : UITableViewDelegate
 {
+    // MARK: height for row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // heightForHeaderInSection -> Header만 크기 다르게 하기도 가능
-        if (indexPath.row == 0)
+        if (indexPath.row == 0) { return 73 }
+        else { return 60 }
+    }
+    
+    
+    // MARK: hide & ban function
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let hideAct = UIContextualAction(style: .normal, title: "숨김", handler: {( action, view, success) in })
+        
+        let banAct = UIContextualAction(style: .normal, title: "차단", handler: {( action, view, seccess) in })
+        
+        hideAct.backgroundColor = .gray
+        banAct.backgroundColor = .red
+        
+        let swipeAct = UISwipeActionsConfiguration(actions: [banAct, hideAct])
+        
+        // 스와이프 자동으로 끝까지 되는 거 방지하기 위함
+        swipeAct.performsFirstActionWithFullSwipe = false
+        
+        return swipeAct
+    }
+    
+    
+    // MARK: Context Menu
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+
+        let chat = UIAction(title:"채팅하기") {_ in }
+        let voiceChat = UIAction(title: "보이스톡") {_ in }
+        let faceChat = UIAction(title: "페이스톡") {_ in }
+        let present = UIAction(title: "선물하기") {_ in }
+
+//        self.imageName = myData[indexPath.row].imageName
+//        self.name = myData[indexPath.row].name
+//
+        return UIContextMenuConfiguration(identifier: nil,
+                                          previewProvider: nil)
         {
-            return 73
-        }
-        else
-        {
-            return 60
+            _ in UIMenu(title:"", children: [chat, voiceChat, faceChat, present])
         }
     }
 }
+
+
+
+// MARK: DataSource
 extension MainViewController : UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,4 +157,5 @@ extension MainViewController : UITableViewDataSource
         
         return cell
     }
+    
 }

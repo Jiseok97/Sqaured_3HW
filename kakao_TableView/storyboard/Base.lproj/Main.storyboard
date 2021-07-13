@@ -120,11 +120,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tNa-2t-jzo">
-                                <rect key="frame" x="162" y="523" width="90" height="90"/>
+                                <rect key="frame" x="164.5" y="525.5" width="85" height="85"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="1RN-CZ-2BQ"/>
+                                    <constraint firstAttribute="height" constant="85" id="1RN-CZ-2BQ"/>
                                     <constraint firstAttribute="width" secondItem="tNa-2t-jzo" secondAttribute="height" multiplier="1:1" id="gL0-dr-squ"/>
-                                    <constraint firstAttribute="width" constant="90" id="pWF-9W-dpf"/>
+                                    <constraint firstAttribute="width" constant="85" id="pWF-9W-dpf"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGT-B6-VfY">
@@ -142,13 +142,13 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:1 채팅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tab-yg-XS6">
-                                <rect key="frame" x="72.5" y="760" width="42" height="16"/>
+                                <rect key="frame" x="72.5" y="770" width="42" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="통화하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nd-mc-X30">
-                                <rect key="frame" x="184.5" y="760" width="45" height="16"/>
+                                <rect key="frame" x="184.5" y="770" width="45" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -167,11 +167,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카카오스토리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7V-Oi-D5X">
-                                <rect key="frame" x="284.5" y="760" width="68" height="16"/>
+                                <rect key="frame" x="284.5" y="770" width="68" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weO-Yi-n0A">
+                                <rect key="frame" x="15" y="59" width="24" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" weight="light"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitBtn:" destination="hPV-QV-b4m" eventType="touchUpInside" id="D9a-5J-aF9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cu0-Kp-SCx"/>
                         <color key="backgroundColor" red="0.45098039215686275" green="0.46666666666666667" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -183,14 +194,16 @@
                             <constraint firstItem="VQn-mr-NBC" firstAttribute="centerX" secondItem="wFM-5w-9OV" secondAttribute="centerX" id="AyB-T9-y8y"/>
                             <constraint firstItem="x7o-jG-kYC" firstAttribute="centerX" secondItem="wFM-5w-9OV" secondAttribute="centerX" id="Ini-XE-lqv"/>
                             <constraint firstItem="7Nd-mc-X30" firstAttribute="leading" secondItem="tab-yg-XS6" secondAttribute="trailing" constant="70" id="NmE-uF-Std"/>
-                            <constraint firstItem="7Nd-mc-X30" firstAttribute="centerY" secondItem="wFM-5w-9OV" secondAttribute="centerY" constant="320" id="PMV-lp-EG5"/>
+                            <constraint firstItem="7Nd-mc-X30" firstAttribute="centerY" secondItem="wFM-5w-9OV" secondAttribute="centerY" constant="330" id="PMV-lp-EG5"/>
                             <constraint firstItem="x7o-jG-kYC" firstAttribute="centerY" secondItem="wFM-5w-9OV" secondAttribute="centerY" constant="290" id="TGm-UW-x3D"/>
+                            <constraint firstItem="weO-Yi-n0A" firstAttribute="top" secondItem="cu0-Kp-SCx" secondAttribute="top" constant="15" id="WpY-TC-vkJ"/>
                             <constraint firstItem="VQn-mr-NBC" firstAttribute="centerY" secondItem="wFM-5w-9OV" secondAttribute="centerY" constant="190" id="apC-5M-7fl"/>
                             <constraint firstItem="7Nd-mc-X30" firstAttribute="centerX" secondItem="wFM-5w-9OV" secondAttribute="centerX" id="bOP-eA-YzO"/>
                             <constraint firstItem="c7V-Oi-D5X" firstAttribute="leading" secondItem="7Nd-mc-X30" secondAttribute="trailing" constant="55" id="bh1-kS-adG"/>
                             <constraint firstItem="c7V-Oi-D5X" firstAttribute="centerY" secondItem="7Nd-mc-X30" secondAttribute="centerY" id="fNB-Re-va2"/>
                             <constraint firstItem="tNa-2t-jzo" firstAttribute="centerX" secondItem="wFM-5w-9OV" secondAttribute="centerX" id="n92-YR-6RA"/>
                             <constraint firstItem="x7o-jG-kYC" firstAttribute="leading" secondItem="XGT-B6-VfY" secondAttribute="trailing" constant="70" id="ucp-va-MXp"/>
+                            <constraint firstItem="weO-Yi-n0A" firstAttribute="leading" secondItem="cu0-Kp-SCx" secondAttribute="leading" constant="15" id="vev-Qc-ZAj"/>
                             <constraint firstItem="XGT-B6-VfY" firstAttribute="centerY" secondItem="x7o-jG-kYC" secondAttribute="centerY" id="yOA-jR-OZ9"/>
                         </constraints>
                     </view>
@@ -263,7 +276,7 @@
                         <viewLayoutGuide key="safeArea" id="1v4-tI-kLK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="ellipsis.circle" catalog="system" selectedImage="ellipsis" id="gWV-VS-HnS"/>
+                    <tabBarItem key="tabBarItem" title="" image="ellipsis.circle" catalog="system" selectedImage="ellipsis.circle.fill" id="gWV-VS-HnS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4jG-j9-hYM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,8 +310,8 @@
     <resources>
         <image name="bag" catalog="system" width="128" height="128"/>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
+        <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="k.square.fill" catalog="system" width="128" height="114"/>
         <image name="message" catalog="system" width="128" height="113"/>
@@ -307,6 +320,7 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

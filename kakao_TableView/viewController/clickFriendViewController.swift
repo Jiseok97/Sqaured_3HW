@@ -23,6 +23,13 @@ class clickFriendViewController: UIViewController {
         nameLbl.text = receiveName
     }
     
+    // MARK: dismiss
+    @IBAction func exitBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // MARK: get & set Image
     func setImage()
     {
         imgView.image = UIImage(named: receiveImage)
