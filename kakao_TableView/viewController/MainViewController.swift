@@ -44,11 +44,15 @@ class MainViewController: UIViewController {
     }
     
     
+    // MARK: cell 클릭 시
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "clickFriendViewController") as? clickFriendViewController else { return }
         
         nextVC.modalPresentationStyle = .fullScreen
         nextVC.modalTransitionStyle = .coverVertical
+        
+        nextVC.receiveName = myData[indexPath.row].name
+        nextVC.receiveImage = myData[indexPath.row].imageName
         
         self.present(nextVC, animated: true, completion: nil)
     }
@@ -106,6 +110,4 @@ extension MainViewController : UITableViewDataSource
         
         return cell
     }
-    
-    
 }

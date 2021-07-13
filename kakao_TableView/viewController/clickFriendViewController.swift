@@ -8,11 +8,24 @@
 import UIKit
 
 class clickFriendViewController: UIViewController {
-
+    
+    var receiveImage = ""
+    var receiveName = ""
+    
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setImage()
+        nameLbl.text = receiveName
     }
     
+    func setImage()
+    {
+        imgView.image = UIImage(named: receiveImage)
+        imgView.layer.cornerRadius = 30
+    }
 }

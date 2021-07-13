@@ -40,5 +40,4 @@ class FriendsTableViewCell: UITableViewCell {
         msgLbl.text = msg
     }
     
-    
 }
