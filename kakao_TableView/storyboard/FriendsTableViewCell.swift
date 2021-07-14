@@ -16,12 +16,18 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var msgLbl: UILabel!
     
+    // 실험
+    @IBOutlet weak var reuseBtn: UISwitch!
+    
+    
     override func awakeFromNib() {
         
         // 
         super.awakeFromNib()
         // Initialization code
     }
+    
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -29,7 +35,16 @@ class FriendsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setDate(imageName: String, name: String, msg: String)
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        reuseBtn.isOn = true
+//        self.nameLbl.text = nil     요런식으로
+        
+        // cell 악세사리 타입 없음!
+        self.accessoryType = .none
+    }
+    
+    func setDate(imageName: String, name: String, msg: String, clicked: Bool)
     {
         if let image = UIImage(named: imageName)
         {
@@ -38,6 +53,7 @@ class FriendsTableViewCell: UITableViewCell {
         }
         nameLbl.text = name
         msgLbl.text = msg
+        reuseBtn.isOn = clicked
     }
     
 }

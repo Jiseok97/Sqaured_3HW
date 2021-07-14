@@ -37,17 +37,38 @@ class MainViewController: UIViewController {
     }
     
     
+    // MARK: dequeueReusable 해결
+//    override func prepareForReuse
+    
+    
+    
     // MARK: myData
     func setFriendsList()
     {
         myData.append(contentsOf: [
-            myDataModel(imageName: "person", name: "아요쓰", msg: "배고프다"),
-            myDataModel(imageName: "person", name: "지노", msg: "나도 배고파"),
-            myDataModel(imageName: "person", name: "모니", msg: "나도 배고파22"),
-            myDataModel(imageName: "person", name: "아일린", msg: "나도 배고프다33"),
-            myDataModel(imageName: "person", name: "우주", msg: "나도 배고프다44"),
-            myDataModel(imageName: "person", name: "앤디", msg: "나도 배고프다55"),
-            myDataModel(imageName: "person", name: "조디", msg: "나도 배고프다66")
+            myDataModel(imageName: "person", name: "아요쓰", msg: "배고프다", click: true),
+            myDataModel(imageName: "person", name: "지노", msg: "나도 배고파", click: true),
+            myDataModel(imageName: "person", name: "모니", msg: "나도 배고파22", click: true),
+            myDataModel(imageName: "person", name: "아일린", msg: "나도 배고프다33", click: true),
+            myDataModel(imageName: "person", name: "우주", msg: "나도 배고프다44", click: true),
+            myDataModel(imageName: "person", name: "앤디", msg: "나도 배고프다55", click: true),
+            myDataModel(imageName: "person", name: "조디", msg: "나도 배고프다66", click: true),
+            
+            // dequeueReusable
+            myDataModel(imageName: "person", name: "235fg", msg: "asdf", click: true),
+            myDataModel(imageName: "person", name: "지노", msg: "나도 asdf", click: true),
+            myDataModel(imageName: "person", name: "123123", msg: "나도 배고파asdfas", click: true),
+            myDataModel(imageName: "person", name: "123123", msg: "나도 배고프다asdfasdf", click: true),
+            myDataModel(imageName: "person", name: "우주", msg: "나도 배고프다asdfasf", click: true),
+            myDataModel(imageName: "person", name: "asdf", msg: "나도 배고프다55", click: true),
+            myDataModel(imageName: "person", name: "dfdf", msg: "나도 배고프다66", click: true),
+            myDataModel(imageName: "person", name: "vcvc", msg: "배고프다", click: true),
+            myDataModel(imageName: "person", name: "dsfasf", msg: "나도 배고파", click: true),
+            myDataModel(imageName: "person", name: "wefe", msg: "나도 배고파22", click: true),
+            myDataModel(imageName: "person", name: "vbxc", msg: "나도 배고프다33", click: true),
+            myDataModel(imageName: "person", name: "asdfasf", msg: "나도 배고프다44", click: true),
+            myDataModel(imageName: "person", name: "ewfef", msg: "나도 배고프다55", click: true),
+            myDataModel(imageName: "person", name: "123213", msg: "나도 배고프다66", click: true)
         ])
     }
     
@@ -55,6 +76,8 @@ class MainViewController: UIViewController {
     // MARK: cell 클릭 시
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "clickFriendViewController") as? clickFriendViewController else { return }
+        
+        myData[indexPath.row].click = false
         
         nextVC.modalPresentationStyle = .fullScreen
         nextVC.modalTransitionStyle = .coverVertical
@@ -118,6 +141,7 @@ extension MainViewController : UITableViewDelegate
     }
     
     
+    
     // MARK: Context Menu
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
 
@@ -147,13 +171,15 @@ extension MainViewController : UITableViewDataSource
     }
     
     // 어떤 내용을 담을지
+    // MARK: dequeueReusableCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identifier, for: indexPath)
                 as? FriendsTableViewCell else { return UITableViewCell() }
         
         cell.setDate(imageName: myData[indexPath.row].imageName,
                      name: myData[indexPath.row].name,
-                     msg: myData[indexPath.row].msg)
+                     msg: myData[indexPath.row].msg,
+                     clicked: myData[indexPath.row].click)
         
         return cell
     }

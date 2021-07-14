@@ -13,4 +13,5 @@ struct myDataModel
     var imageName: String
     var name: String
     var msg: String
+    var click: Bool
 }
