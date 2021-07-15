@@ -10,6 +10,7 @@
 		B6008888269D44DA00831D61 /* clickFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6008887269D44DA00831D61 /* clickFriendViewController.swift */; };
 		B60E34C7269ECE9C00A5D847 /* moreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E34C6269ECE9C00A5D847 /* moreInfoViewController.swift */; };
 		B60E34C9269ECEB800A5D847 /* moreInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E34C8269ECEB800A5D847 /* moreInfoTableViewCell.swift */; };
+		B6EFC84526A019E600B2FB9E /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFC84426A019E600B2FB9E /* NetworkMonitor.swift */; };
 		B6F51120269C12BD001CACE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5111F269C12BD001CACE5 /* AppDelegate.swift */; };
 		B6F51122269C12BD001CACE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F51121269C12BD001CACE5 /* SceneDelegate.swift */; };
 		B6F51127269C12BD001CACE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F51125269C12BD001CACE5 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		B6008887269D44DA00831D61 /* clickFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clickFriendViewController.swift; sourceTree = "<group>"; };
 		B60E34C6269ECE9C00A5D847 /* moreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreInfoViewController.swift; sourceTree = "<group>"; };
 		B60E34C8269ECEB800A5D847 /* moreInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreInfoTableViewCell.swift; sourceTree = "<group>"; };
+		B6EFC84426A019E600B2FB9E /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		B6F5111C269C12BD001CACE5 /* kakao_TableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakao_TableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F5111F269C12BD001CACE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6F51121269C12BD001CACE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				B6F51153269C24F2001CACE5 /* MainViewController.swift */,
+				B6EFC84426A019E600B2FB9E /* NetworkMonitor.swift */,
 				B6F51155269C2A8E001CACE5 /* FriendsTableViewCell.swift */,
 				B6008887269D44DA00831D61 /* clickFriendViewController.swift */,
 				B60E34C6269ECE9C00A5D847 /* moreInfoViewController.swift */,
@@ -304,6 +307,7 @@
 				B6F51154269C24F2001CACE5 /* MainViewController.swift in Sources */,
 				B6008888269D44DA00831D61 /* clickFriendViewController.swift in Sources */,
 				B6F5115A269C2E36001CACE5 /* myDataModel.swift in Sources */,
+				B6EFC84526A019E600B2FB9E /* NetworkMonitor.swift in Sources */,
 				B6F51157269C2A8E001CACE5 /* FriendsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

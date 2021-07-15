@@ -8,7 +8,7 @@
 import UIKit
 
 class moreInfoViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

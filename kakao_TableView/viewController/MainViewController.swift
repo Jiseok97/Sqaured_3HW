@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import Network
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var kakaoTableView: UITableView!
     
+    // Check WiFi
+    // NWPathMonitor(): 네트워크 변화를 감지하는 클래스
+    let monitor = NWPathMonitor()
+    let wifiMonitor = NWPathMonitor(requiredInterfaceType: .wifi)
+    
     var myData : [myDataModel] = []
+    //    var banLst : [myDataModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +27,24 @@ class MainViewController: UIViewController {
         kakaoTableView.delegate = self
         kakaoTableView.dataSource = self
         kakaoTableView.separatorStyle = .none
+
+        
+        // MARK: WiFi connect check
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied
+            {
+                print("인터넷 연결이 되었있습니다.")
+            }
+            else
+            {
+                print("인터넷 연결이 실패하였습니다.")
+            }
+        }
+
+        let queue = DispatchQueue.global(qos: .background)
+        monitor.start(queue: queue)
+        
+        
         
         
         
@@ -31,16 +56,17 @@ class MainViewController: UIViewController {
     // MARK: reloadData()
     override func viewDidAppear(_ animated: Bool) {
         kakaoTableView.reloadData()
+        if NetworkMonitor.shared.isConnected
+        {
+            print("인터넷 연결 성공")
+        }
+        else{
+            print("인터넷 연결 실패")
+        }
     }
     override func viewDidDisappear(_ animated: Bool) {
         kakaoTableView.reloadData()
     }
-    
-    
-    // MARK: dequeueReusable 해결
-//    override func prepareForReuse
-    
-    
     
     // MARK: myData
     func setFriendsList()
@@ -77,13 +103,12 @@ class MainViewController: UIViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "clickFriendViewController") as? clickFriendViewController else { return }
         
-        myData[indexPath.row].click = false
-        
         nextVC.modalPresentationStyle = .fullScreen
         nextVC.modalTransitionStyle = .coverVertical
-        
+
         nextVC.receiveName = myData[indexPath.row].name
         nextVC.receiveImage = myData[indexPath.row].imageName
+        myData[indexPath.row].click = false
         
         self.present(nextVC, animated: true, completion: nil)
     }
@@ -122,7 +147,20 @@ extension MainViewController : UITableViewDelegate
     }
     
     
-    // MARK: hide & ban function
+    // MARK: Star (Left)
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let star = UIContextualAction(style: .normal, title: "☆", handler: {(action, view, success) in })
+        
+        star.backgroundColor = .systemBlue
+        
+        let swipeAct = UISwipeActionsConfiguration(actions: [star])
+        
+        return swipeAct
+    }
+    
+    
+    // MARK: hide & ban function (Right)
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let hideAct = UIContextualAction(style: .normal, title: "숨김", handler: {( action, view, success) in })

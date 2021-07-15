@@ -33,6 +33,7 @@ class clickFriendViewController: UIViewController {
     func setImage()
     {
         imgView.image = UIImage(named: receiveImage)
-        imgView.layer.cornerRadius = 30
+        imgView.layer.cornerRadius = 40
+        
     }
 }
