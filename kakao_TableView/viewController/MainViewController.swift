@@ -7,16 +7,11 @@
 
 import UIKit
 import Network
+import SystemConfiguration
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var kakaoTableView: UITableView!
-    
-    // Check WiFi
-    // NWPathMonitor(): 네트워크 변화를 감지하는 클래스
-    let monitor = NWPathMonitor()
-    let wifiMonitor = NWPathMonitor(requiredInterfaceType: .wifi)
-    
     var myData : [myDataModel] = []
     //    var banLst : [myDataModel] = []
     
@@ -27,45 +22,63 @@ class MainViewController: UIViewController {
         kakaoTableView.delegate = self
         kakaoTableView.dataSource = self
         kakaoTableView.separatorStyle = .none
-
-        
-        // MARK: WiFi connect check
-        monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied
-            {
-                print("인터넷 연결이 되었있습니다.")
-            }
-            else
-            {
-                print("인터넷 연결이 실패하였습니다.")
-            }
-        }
-
-        let queue = DispatchQueue.global(qos: .background)
-        monitor.start(queue: queue)
-        
-        
-        
-        
         
         // MARK: nib 파일 사용시 추가
 //        let nibName = UINib(nibName: "FriendsTableViewCell", bundle: nil)
 //        kakaoTableView.register(nibName, forCellReuseIdentifier: "FriendsCell")
     }
+ 
     
-    // MARK: reloadData()
-    override func viewDidAppear(_ animated: Bool) {
-        kakaoTableView.reloadData()
-        if NetworkMonitor.shared.isConnected
+    // MARK: Checking Internet Connecting
+    func isInternetAvailable() -> Bool
         {
-            print("인터넷 연결 성공")
+            var zeroAddress = sockaddr_in()
+            zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+            zeroAddress.sin_family = sa_family_t(AF_INET)
+            
+            let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+                $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                    SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+                }
+            }
+            
+            var flags = SCNetworkReachabilityFlags()
+
+            if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+
+                return false
+
+            }
+
+            let isReachable = flags.contains(.reachable)
+            let needsConnection = flags.contains(.connectionRequired)
+
+            return (isReachable && !needsConnection)
         }
-        else{
+    
+    
+    // MARK: Cheking Test Method
+    func checkInternet()
+    {
+        if(isInternetAvailable)() {
+            print("인터넷 연결 성공!!")
+        }
+        else
+        {
             print("인터넷 연결 실패")
         }
     }
+    
+    
+    // MARK: Internet Connection & reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        kakaoTableView.reloadData()
+        checkInternet()
+        
+    }
     override func viewDidDisappear(_ animated: Bool) {
         kakaoTableView.reloadData()
+        checkInternet()
     }
     
     // MARK: myData
