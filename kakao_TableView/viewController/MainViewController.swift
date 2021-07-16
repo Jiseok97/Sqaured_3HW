@@ -133,8 +133,12 @@ class MainViewController: UIViewController {
         let opBtn = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         // style: default, destructive(글씨 빨갛게), cancel
-        let editAct = UIAlertAction(title: "편집", style: .default, handler: {_ in })
-        let manageAct = UIAlertAction(title: "친구 관리", style: .default, handler: {_ in })
+        let editAct = UIAlertAction(title: "편집", style: .default, handler: {_ in
+            self.kakaoTableView.setEditing(true, animated: true)
+        })
+        let manageAct = UIAlertAction(title: "친구 관리", style: .default, handler: {_ in
+            self.kakaoTableView.setEditing(false, animated: true)
+        })
         let settingAct = UIAlertAction(title: "전체 설정", style: .default, handler: {_ in })
         let cancelAct = UIAlertAction(title: "취소", style: .cancel, handler: {_ in })
         
@@ -145,6 +149,14 @@ class MainViewController: UIViewController {
         
         self.present(opBtn, animated: true, completion: nil)
     }
+    
+    func remove(at indexPath: IndexPath, to tableView: UITableView)
+    {
+        myData.remove(at: indexPath.row)
+        kakaoTableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    
     
 }
 
@@ -159,11 +171,16 @@ extension MainViewController : UITableViewDelegate
         else { return 60 }
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        
+    }
+    
     
     // MARK: Star (Left)
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let star = UIContextualAction(style: .normal, title: "☆", handler: {(action, view, success) in })
+        let star = UIContextualAction(style: .normal, title: "☆", handler: {(action, view, success) in
+        })
         
         star.backgroundColor = .systemBlue
         
@@ -178,7 +195,9 @@ extension MainViewController : UITableViewDelegate
         
         let hideAct = UIContextualAction(style: .normal, title: "숨김", handler: {( action, view, success) in })
         
-        let banAct = UIContextualAction(style: .normal, title: "차단", handler: {( action, view, seccess) in })
+        let banAct = UIContextualAction(style: .normal, title: "차단", handler: {( action, view, seccess) in
+            self.remove(at: indexPath, to: self.kakaoTableView)
+        })
         
         hideAct.backgroundColor = .gray
         banAct.backgroundColor = .red
