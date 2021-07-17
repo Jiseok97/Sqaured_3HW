@@ -23,6 +23,10 @@ class MainViewController: UIViewController {
         kakaoTableView.dataSource = self
         kakaoTableView.separatorStyle = .none
         
+        self.kakaoTableView.dragInteractionEnabled = true
+        self.kakaoTableView.dragDelegate = self
+        self.kakaoTableView.dropDelegate = self
+        
         // MARK: nib 파일 사용시 추가
 //        let nibName = UINib(nibName: "FriendsTableViewCell", bundle: nil)
 //        kakaoTableView.register(nibName, forCellReuseIdentifier: "FriendsCell")
@@ -94,20 +98,20 @@ class MainViewController: UIViewController {
             myDataModel(imageName: "person", name: "조디", msg: "나도 배고프다66", click: true),
             
             // dequeueReusable
-            myDataModel(imageName: "person", name: "235fg", msg: "asdf", click: true),
-            myDataModel(imageName: "person", name: "지노", msg: "나도 asdf", click: true),
-            myDataModel(imageName: "person", name: "123123", msg: "나도 배고파asdfas", click: true),
-            myDataModel(imageName: "person", name: "123123", msg: "나도 배고프다asdfasdf", click: true),
-            myDataModel(imageName: "person", name: "우주", msg: "나도 배고프다asdfasf", click: true),
-            myDataModel(imageName: "person", name: "asdf", msg: "나도 배고프다55", click: true),
-            myDataModel(imageName: "person", name: "dfdf", msg: "나도 배고프다66", click: true),
-            myDataModel(imageName: "person", name: "vcvc", msg: "배고프다", click: true),
-            myDataModel(imageName: "person", name: "dsfasf", msg: "나도 배고파", click: true),
-            myDataModel(imageName: "person", name: "wefe", msg: "나도 배고파22", click: true),
-            myDataModel(imageName: "person", name: "vbxc", msg: "나도 배고프다33", click: true),
-            myDataModel(imageName: "person", name: "asdfasf", msg: "나도 배고프다44", click: true),
-            myDataModel(imageName: "person", name: "ewfef", msg: "나도 배고프다55", click: true),
-            myDataModel(imageName: "person", name: "123213", msg: "나도 배고프다66", click: true)
+            myDataModel(imageName: "person", name: "사람1", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람2", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람3", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람4", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람5", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람6", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람7", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람8", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람9", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람10", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람11", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람12", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람13", msg: "Hello", click: true),
+            myDataModel(imageName: "person", name: "사람14", msg: "Hello", click: true)
         ])
     }
     
@@ -150,14 +154,14 @@ class MainViewController: UIViewController {
         self.present(opBtn, animated: true, completion: nil)
     }
     
+    
+    // MARK: Remove Function
     func remove(at indexPath: IndexPath, to tableView: UITableView)
     {
         myData.remove(at: indexPath.row)
         kakaoTableView.deleteRows(at: [indexPath], with: .automatic)
     }
-    
-    
-    
+       
 }
 
 
@@ -170,16 +174,11 @@ extension MainViewController : UITableViewDelegate
         if (indexPath.row == 0) { return 73 }
         else { return 60 }
     }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
-    {
-        
-    }
-    
-    
+   
     // MARK: Star (Left)
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let star = UIContextualAction(style: .normal, title: "☆", handler: {(action, view, success) in
+            
         })
         
         star.backgroundColor = .systemBlue
@@ -193,7 +192,9 @@ extension MainViewController : UITableViewDelegate
     // MARK: hide & ban function (Right)
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let hideAct = UIContextualAction(style: .normal, title: "숨김", handler: {( action, view, success) in })
+        let hideAct = UIContextualAction(style: .normal, title: "숨김", handler: {( action, view, success) in
+            self.remove(at: indexPath, to: self.kakaoTableView)
+        })
         
         let banAct = UIContextualAction(style: .normal, title: "차단", handler: {( action, view, seccess) in
             self.remove(at: indexPath, to: self.kakaoTableView)
@@ -254,4 +255,36 @@ extension MainViewController : UITableViewDataSource
         return cell
     }
     
+    // 위치 바꿀 수 있게 하기
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+            return true
+    }
+    
+    // Move Row Instance Method
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let moveCell = self.myData[sourceIndexPath.row]
+        self.myData.remove(at: sourceIndexPath.row)
+        self.myData.insert(moveCell, at: destinationIndexPath.row)
+    }
+    
+}
+
+
+
+// MARK: UITableView UITableViewDragDelegate
+extension MainViewController: UITableViewDragDelegate {
+func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return [UIDragItem(itemProvider: NSItemProvider())]
+    }
+}
+ 
+// MARK: UITableView UITableViewDropDelegate
+extension MainViewController: UITableViewDropDelegate {
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        if session.localDragSession != nil {
+            return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
+    }
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) { }
 }

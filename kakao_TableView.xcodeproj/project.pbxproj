@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B6008888269D44DA00831D61 /* clickFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6008887269D44DA00831D61 /* clickFriendViewController.swift */; };
+		B6299AFE26A262650098FCDE /* moreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6299AFC26A262650098FCDE /* moreCollectionViewCell.swift */; };
+		B6299AFF26A262650098FCDE /* moreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6299AFD26A262650098FCDE /* moreCollectionViewCell.xib */; };
+		B6299B0426A264F60098FCDE /* moreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6299B0226A264F60098FCDE /* moreTableViewCell.swift */; };
+		B6299B0526A264F60098FCDE /* moreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6299B0326A264F60098FCDE /* moreTableViewCell.xib */; };
 		B6E3974626A195E700856EFB /* moreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E3974526A195E700856EFB /* moreViewController.swift */; };
-		B6E3974826A1962000856EFB /* moreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E3974726A1962000856EFB /* moreTableViewCell.swift */; };
 		B6F51120269C12BD001CACE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5111F269C12BD001CACE5 /* AppDelegate.swift */; };
 		B6F51122269C12BD001CACE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F51121269C12BD001CACE5 /* SceneDelegate.swift */; };
 		B6F51127269C12BD001CACE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F51125269C12BD001CACE5 /* Main.storyboard */; };
@@ -41,8 +44,11 @@
 
 /* Begin PBXFileReference section */
 		B6008887269D44DA00831D61 /* clickFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clickFriendViewController.swift; sourceTree = "<group>"; };
+		B6299AFC26A262650098FCDE /* moreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreCollectionViewCell.swift; sourceTree = "<group>"; };
+		B6299AFD26A262650098FCDE /* moreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = moreCollectionViewCell.xib; sourceTree = "<group>"; };
+		B6299B0226A264F60098FCDE /* moreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreTableViewCell.swift; sourceTree = "<group>"; };
+		B6299B0326A264F60098FCDE /* moreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = moreTableViewCell.xib; sourceTree = "<group>"; };
 		B6E3974526A195E700856EFB /* moreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreViewController.swift; sourceTree = "<group>"; };
-		B6E3974726A1962000856EFB /* moreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreTableViewCell.swift; sourceTree = "<group>"; };
 		B6F5111C269C12BD001CACE5 /* kakao_TableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakao_TableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F5111F269C12BD001CACE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6F51121269C12BD001CACE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,13 +100,32 @@
 			path = clickFriend;
 			sourceTree = "<group>";
 		};
-		B6E3974426A195BC00856EFB /* tvCollectionView */ = {
+		B6299B0626A264FB0098FCDE /* tableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				B6E3974526A195E700856EFB /* moreViewController.swift */,
-				B6E3974726A1962000856EFB /* moreTableViewCell.swift */,
+				B6299B0226A264F60098FCDE /* moreTableViewCell.swift */,
+				B6299B0326A264F60098FCDE /* moreTableViewCell.xib */,
 			);
-			path = tvCollectionView;
+			path = tableViewCell;
+			sourceTree = "<group>";
+		};
+		B6299B0726A265120098FCDE /* collectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B6299AFC26A262650098FCDE /* moreCollectionViewCell.swift */,
+				B6299AFD26A262650098FCDE /* moreCollectionViewCell.xib */,
+			);
+			path = collectionViewCell;
+			sourceTree = "<group>";
+		};
+		B6E3974426A195BC00856EFB /* moreView */ = {
+			isa = PBXGroup;
+			children = (
+				B6299B0726A265120098FCDE /* collectionViewCell */,
+				B6299B0626A264FB0098FCDE /* tableViewCell */,
+				B6E3974526A195E700856EFB /* moreViewController.swift */,
+			);
+			path = moreView;
 			sourceTree = "<group>";
 		};
 		B6F51113269C12BD001CACE5 = {
@@ -167,7 +192,7 @@
 		B6F51150269C12E0001CACE5 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
-				B6E3974426A195BC00856EFB /* tvCollectionView */,
+				B6E3974426A195BC00856EFB /* moreView */,
 				B615B5BD26A15F3E00E61FD7 /* clickFriend */,
 				B6F51153269C24F2001CACE5 /* MainViewController.swift */,
 				B6F51155269C2A8E001CACE5 /* FriendsTableViewCell.swift */,
@@ -287,7 +312,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6F5112C269C12BE001CACE5 /* LaunchScreen.storyboard in Resources */,
+				B6299AFF26A262650098FCDE /* moreCollectionViewCell.xib in Resources */,
 				B6F51129269C12BE001CACE5 /* Assets.xcassets in Resources */,
+				B6299B0526A264F60098FCDE /* moreTableViewCell.xib in Resources */,
 				B6F51127269C12BD001CACE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,8 +340,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6E3974826A1962000856EFB /* moreTableViewCell.swift in Sources */,
+				B6299AFE26A262650098FCDE /* moreCollectionViewCell.swift in Sources */,
 				B6F51120269C12BD001CACE5 /* AppDelegate.swift in Sources */,
+				B6299B0426A264F60098FCDE /* moreTableViewCell.swift in Sources */,
 				B6F51122269C12BD001CACE5 /* SceneDelegate.swift in Sources */,
 				B6E3974626A195E700856EFB /* moreViewController.swift in Sources */,
 				B6F51154269C24F2001CACE5 /* MainViewController.swift in Sources */,
