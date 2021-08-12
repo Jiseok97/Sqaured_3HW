@@ -7,8 +7,8 @@
 # 소프트 스퀘어드 3주차 
 Table View
 
-## 일정 관리 앱 (To Do) 
-Cell 위치 바꾸기, 삭제하기, 추가하기, 추가 시간 확인하기(by Date Picker)
+## 카카오톡 클론
+Cell 위치 바꾸기, 삭제하기, 추가하기, 자세히 
 
 ## Developer
 iOS_Jiseok97 (by Swift)
